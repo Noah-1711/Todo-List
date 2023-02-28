@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import AddUser from './Components/AddUser';
+import Userlist from './Components/Userlist';
+
 
 function App() {
+  const [addinput, setAddinput] = useState("")
+  const [inputarray, setInputarray] = useState([])
+  const [disabled, setDisabled] = useState(true)
+  const [togglebtn, setTogglebtn] = useState(true)
+  const [edititem, setEdititem] = useState(null)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AddUser 
+      addinput={addinput} 
+      setAddinput={setAddinput}
+       inputarray={inputarray} 
+       setInputarray={setInputarray} 
+       disabled={disabled} 
+       setDisabled={setDisabled}
+       togglebtn={togglebtn}
+       setTogglebtn={setTogglebtn}
+       edititem={edititem}
+       setEdititem={setEdititem}/>
+
+    <Userlist addinput={addinput} 
+      setAddinput={setAddinput} inputarray={inputarray} setInputarray={setInputarray}  togglebtn={togglebtn}
+       setTogglebtn={setTogglebtn}  edititem={edititem}
+       setEdititem={setEdititem}/>
     </div>
   );
 }
